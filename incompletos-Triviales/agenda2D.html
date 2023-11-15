@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var personas= new Array(5); //Um array de PRIMERA DIMENSION que almacena personas, y dentro de cada elemento de este
+        var personas = new Array(5); //Um array de PRIMERA DIMENSION que almacena personas, y dentro de cada elemento de este
         // array queremos guardar 3 elementos en cada posicion del array, que serán, nombre, edad y telefono
-        for(i=0; i<personas.length;i++){
-            personas[i]= new Array(2);
+        for (i = 0; i < personas.length; i++) {
+            personas[i] = new Array(2);
         }
 
-        for(i=0; i<personas.length;i++){
-            for(j=0; j<personas.length; j++){
-                personas[i][j]= "a";
+        for (i = 0; i < personas.length; i++) {
+            for (j = 0; j < personas.length; j++) {
+                personas[i][j] = "a";
             }
         }
     </script>
 </head>
+
 <body>
     <p>Nombre: <input type="text"></p>
     <p>Edad: <input type="text"></p>
     <p>Telefono: <input type="text"></p>
 </body>
+
 </html>
