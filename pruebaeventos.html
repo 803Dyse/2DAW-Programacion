@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body onload="iniciar()" style="background-color: brown;">
+    <script>
+        function setTexto01() {
+            document.getElementById("prueba").innerHTML = "Quita el raton!!!";
+        }
+        function setTextoInic() {
+            document.getElementById("preuba").innerHTML = "Pasa el raton...";
+        }
+
+        function iniciar() {
+            document.getElementById("prueba").innerHTML = "Pasa el raton...";
+        }
+    </script>
+    <div id="prueba" onmouseover="setTexto01()" onmousedown="setTextoInic" style="border:solid 2px; background-color: aqua;"></div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+
+        function calcularDiferencia() {
+            const fechaActual = new Date();
+            document.getElementById("fechaActual").innerHTML = fechaActual.toLocaleDateString();
+
+            const diaPasado = parseInt(document.getElementById("diaPasado").value);
+            const mesPasado = parseInt(document.getElementById("mesPasado").value) - 1;
+            const anioPasado = parseInt(document.getElementById("anioPasado").value);
+            // Crea un objeto Date con la fecha del usuario
+            const fechaPasada = new Date(anioPasado, mesPasado, diaPasado);
+
+
+
+            // Calcula la diferencia en milisegundos entre ambas fechas
+            const diferenciaEnMS = fechaActual - fechaPasada;
+            // Define la cantidad de milisegundos en un día
+            const milisegundosEnUnDia = 24 * 60 * 60 * 1000;
+            // Calcula la diferencia en días
+            const diferenciaEnDias = Math.floor(diferenciaEnMS / milisegundosEnUnDia);
+            // Calcula la cantidad de años, meses y días en la diferencia
+            const anios = Math.floor(diferenciaEnDias / 365);
+            const meses = Math.floor((diferenciaEnDias % 365) / 30);
+            const dias = (diferenciaEnDias % 365) % 30;
+            // Muestra el resultado en la página
+            document.getElementById("resultado").innerHTML = dias + " días " + meses + " meses " + anios + " años";
+        }
+
+        /*
+        Cálculo de la diferencia en milisegundos: Primero, se obtiene la fecha actual con new Date() y la fecha pasada a través de la entrada del usuario. Luego, se calcula la diferencia en milisegundos restando la fecha pasada de la fecha actual, lo que nos da la cantidad total de milisegundos entre ambas fechas.
+        
+        Definición de milisegundos en un día: La diferencia en milisegundos es grande, por lo que para convertirla en días, se necesita conocer cuántos milisegundos hay en un día. Esto se logra definiendo milisegundosEnUnDia como el producto de 24 (horas), 60 (minutos), 60 (segundos) y 1000 (milisegundos), que equivale a un día en milisegundos (24 * 60 * 60 * 1000).
+        
+        Cálculo de la diferencia en días: La diferencia total en milisegundos se divide por milisegundosEnUnDia para obtener la diferencia en días. Esto se hace usando Math.floor para asegurarse de que se obtenga un número entero.
+        
+        Cálculo de años, meses y días: Para desglosar la diferencia en años, meses y días, se utilizan divisiones y módulos. Se divide la diferencia en días por 365 para obtener la cantidad de años completos. Luego, el residuo de esta división se divide por 30 para obtener la cantidad de meses completos. Finalmente, el residuo de esta última operación es la cantidad de días restantes.
+        */
+    </script>
+</head>
+
+<body>
+    <h1>Diferencia de Fechas</h1>
+
+    <p>Fecha Actual: <span id="fechaActual"></span></p>
+
+    <label for="diaPasado">Día:</label>
+    <input type="text" id="diaPasado" min="1" max="31"><br>
+
+    <label for="mesPasado">Mes:</label>
+    <input type="text" id="mesPasado" min="1" max="12"><br>
+
+    <label for="anioPasado">Año:</label>
+    <input type="text" id="anioPasado" min="1900">
+
+    <br><br>
+    <button onclick="calcularDiferencia()">Calcular Diferencia</button>
+    <p>Diferencia en días: <span id="resultado"></span></p>
+
+
+</body>

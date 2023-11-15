@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function adivinar() {
+            //Aqui pedimos el numero del usuario
+            do {
+                x = parseInt(prompt("Introduce un número entre 0 y 10:"));
+            } while (isNaN(x) || x < 0 || x > 10);
+            //Aqui comprobamos que el bucle solo se ejecute si cumple con numeros entre 0 y 10
+            return x;
+        }
+
+        function generarNumeroEnteroAleatorio(min, max) {
+            min = 0; //Definimos un límite de numero minimi para randomizar
+            max = 10;//y uno maximo.
+            hits = 0; //Aqui guardamos los fallos.
+            const numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+            console.log(numeroAleatorio);
+            adivinar(); //Llamamos a la funcion que pide al usuario la entrada de datos para adivinar el numero
+            if (x != numeroAleatorio) {
+                hits++; //incrementamos la variable de fallos para guardar la cantidad de fallos
+                window.alert("Fallaste. Numero de fallos:" + hits);
+            } else {
+                window.alert("Enhorabuena, ganaste!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="generarNumeroEnteroAleatorio()">Aleatorizar</button>
+</body>
+
+</html>

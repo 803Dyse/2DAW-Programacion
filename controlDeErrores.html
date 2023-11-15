@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de intensidad y potencia eléctrica</title>
+</head>
+<body>
+  <h1>Calculadora de intensidad y potencia eléctrica</h1>
+
+  <div class="inputs">
+    <label for="voltaje">Voltaje</label>
+    <input type="text" id="voltaje" min="1">
+    <button id="boton-voltaje">Calcular</button>
+
+    <label for="resistencia">Resistencia</label>
+    <input type="text" id="resistencia" min="1">
+    <button id="boton-resistencia">Calcular</button>
+  </div>
+
+  <div class="outputs">
+    <label for="intensidad">Intensidad</label>
+    <input type="number" id="intensidad" readonly>
+
+    <label for="potencia">Potencia</label>
+    <input type="number" id="potencia" readonly>
+  </div>
+
+  <script>
+    const voltaje = document.getElementById("voltaje");
+    const resistencia = document.getElementById("resistencia");
+    const intensidad = document.getElementById("intensidad");
+    const potencia = document.getElementById("potencia");
+
+    // Validación de los inputs para garantizar que sean números.
+    function validarInputs() {
+      if (!voltaje.value.match(/^\d+$/)) {
+        voltaje.value = "";
+        voltaje.focus();
+        return false;
+      }
+
+      if (!resistencia.value.match(/^\d+$/)) {
+        resistencia.value = "";
+        resistencia.focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    // Cálculo de la intensidad y potencia.
+    function calcular() {
+      if (!validarInputs()) {
+        return;
+      }
+
+      // Control del alcance de los valores.
+      if (voltaje.value < 1) {
+        throw new Error("La tensión debe ser mayor que 1");
+      }
+
+      if (resistencia.value < 1) {
+        throw new Error("La resistencia debe ser mayor que 1");
+      }
+
+      intensidad.value = voltaje.value / resistencia.value;
+      potencia.value = voltaje.value * intensidad.value;
+    }
+
+    // Eventos de los botones.
+    document.getElementById("boton-voltaje").addEventListener("click", calcular);
+    document.getElementById("boton-resistencia").addEventListener("click", calcular);
+
+    // Llamada de la función de cálculo.
+    calcular();
+  </script>
+</body>
+</html>

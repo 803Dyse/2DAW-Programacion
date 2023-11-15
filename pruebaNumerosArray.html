@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function run() {
+            var inputNumeros1 = document.getElementById("s1").value;
+            var inputNumeros2 = document.getElementById("s2").value;
+            // Separar los números ingresados por comas y convertirlos en arrays
+            var inputText1 = document.getElementById("txt1").value.split(",");
+            var inputText2 = document.getElementById("txt2").value.split(",");
+
+            if (inputText1.length == inputNumeros1 && inputText2.length == inputNumeros2) {
+                // Crear un nuevo array combinando los valores de los dos campos de texto
+                var resultado = [];
+                for (var i = 0; i < inputNumeros1; i++) {
+                    resultado.push(inputText1[i]);
+                    resultado.push(inputText2[i]);
+                }
+                // Convertir el resultado en una cadena y mostrarlo
+                var resultadoString = resultado.join(",");
+                console.log(resultadoString);
+            } else {
+                console.log("Los números no coinciden");
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+    <p>Primera lista:
+        <input type="text" id="txt1">
+        <select id="s1">
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </p>
+    <p>Segunda lista:
+        <input type="text" id="txt2">
+        <select id="s2">
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </p>
+    <button onclick="run()">Enviar</button> <button>Reiniciar</button>
+</body>
+
+</html>

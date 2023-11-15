@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contador"></div>
+
+    <script>
+        var fechaRegresiva = "2023-12-11"; //Guardo la fecha que quiero que empiece a contar regresivamente
+
+      function actualizarContador() {
+        var fechaDestino = new Date(fechaRegresiva); //paso como parametro la variable de la fecha que queremos calcular
+        var ahora = new Date(); //Crear fecha actual
+        var diferencia = fechaDestino - ahora; //Encontramos la diferencia entre la fecha actual y la regresiva
+  
+        //cogemos todo lo que tenemos en lo más minimo de unidad de medida y luego...
+        //calculamos la diferencia de tiempo con la logica de ir a lo mas grande, 
+        //reduciendo algoritmicamente hasta hallar cada valor del formato fecha.
+        var segundos = Math.floor((diferencia / 1000) % 60); //Encontramos los segundos
+        var minutos = Math.floor((diferencia / 1000 / 60) % 60); // luego encontramos los minutos
+        var horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24); // encontramos horas
+        var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24)); //encontramos dias
+        var años = Math.floor(dias / 365); // y por último años
+        
+        var contador = document.getElementById("contador"); //Elemento que pasa la informacion de la fecha regresiva por pantalla
+        contador.innerHTML = años + " años " + (dias % 365) + " días " + horas + " horas " + minutos + " minutos " + segundos + " segundos"; //Aqui cambiamos los datos para printearla en tiempo real
+      }
+  
+      setInterval(actualizarContador, 1000);
+      actualizarContador();
+    </script>
+</body>
+</html>

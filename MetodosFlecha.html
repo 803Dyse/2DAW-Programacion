@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        function hola(){
+            return "Hola normal";
+        }
+        document.write(hola() + "<br />");
+
+        var hola;
+        hola = function(){
+            return "Hola anonimo...";
+        };
+        document.write(hola());
+
+        //"METODO UNO"
+        //En las funciones de flecha puedes utilizar el return directamente, si tiene mas de una instruccion o,
+        //puedes returnear sin return, como lo veremos abajo en el metodo DOS
+        hola = () => {return "hola con flechitas!";}
+        document.write("<br/>" + hola());
+
+        //"METODO DOS"
+        //Aqui tendria más sentido utilizar la funcion con flecha tal y como la vemos, ya que, lo que queremos en esta
+        //funcion es solamente conseguir imprimir un mensaje de hola, con un salto e linea PERO en el metodo UNO si
+        //tendría sentido y a lo mejor si seria necesario utilizarlo si son por ejemplo instrucciones matematicas, 
+        //asi utilizas de forma eficaz y con el proposito que la dicha funcion tiene.
+        hola = () => "Hola 4";
+        document.write("<br/>" + hola());
+
+        //
+        var nombre = "Pepe";
+        saludar = saludo => saludo + nombre;
+        document.write("<br/>" +
+        saludar("Hola grande! "));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

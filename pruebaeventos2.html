@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="comprobarCookies()" style="background-color: gray;">
+    <input type="text" id="txt" onkeypress="miFuncion()">
+    <p id="prueba"></p>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color: #D94A38; width: 90px; height: 20px; padding: 40px;">Haz Click...</div>
+    <script>
+        function comprobarCookies() {
+            var text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "Cookies activadas.";
+            } else {
+                text = "Cookies no activadas.";
+            }
+            document.getElementById("prueba").innerHTML = text;
+        }
+
+        function miFuncion() {
+            var x = document.getElementById("txt");
+            x.value = x.value.toUpperCase();
+        }
+
+        function mDown(obj){
+            obj.style.backgroundcolor = "#D94A38";
+            obj.innerHTML = "Suelta...";
+        }
+
+        function mUp(obj){
+            obj.style.backgroundcolor = "#1ec5e5";
+            obj.innerHTML = "Gracias...";
+        }
+    </script>
+</body>
+
+</html>

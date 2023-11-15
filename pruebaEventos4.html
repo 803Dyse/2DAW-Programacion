@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<style>
+    div {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+    }
+</style>
+
+<body onmousemove="cordBody(event); cordScreen(event); cordDiv(event)">
+    <p id="cordDiv"></p>
+    <p id="cordBody"></p>
+    <p id="cordScreen"></p>
+
+    <div onmousemove="cordDiv(event)"></div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <script>
+       
+
+        function cordDiv(e) {
+            x = e.clientX - document.getElementById("cordDiv").getBoundingClientRect().left;
+            y = e.clientY - document.getElementById("cordDiv").getBoundingClientRect().top;
+
+
+            document.getElementById("cordDiv").innerHTML = "Coordenadas Div: (" + x + "," + y + ")";
+        }
+
+        function cordBody(e) {
+            let x = e.pageX;
+            let y = e.pageY;
+
+            document.getElementById("cordBody").innerHTML = "Coordenadas Body: (" + x + "," + y + ")";
+        }
+
+        function cordScreen(e) {
+            let x = e.screenX;
+            let y = e.screenY;
+            document.getElementById("cordScreen").innerHTML = "Coordenadas Screen: (" + x + "," + y + ")";
+        }
+    </script>
+
+</body>
+
+</html>
