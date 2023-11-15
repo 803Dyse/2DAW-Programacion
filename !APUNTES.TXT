@@ -30,3 +30,6 @@ Cuando toco el nodo, si lo que quiero es coger su contenido(será practicamente 
     document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
     var txt = document.getElementById("id01").childNodes[0].nodeValue;
     document.write(txt);
+
+Si por otro lado queremos la etiqueta(el nodo en ese caso, es como lo llamamos), utilizaremos "nodeName".
+Por último, si queremos el atributo, usaremos "getAttribute" o simplemente "attr", pero no todos los nodos tienen atributos, así que hay que verificarlo antes.
