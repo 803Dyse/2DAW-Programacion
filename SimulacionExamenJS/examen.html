@@ -36,9 +36,9 @@ Parte 6: Bonus (15 puntos)
     Un área de texto para comentarios.
     Un botón de envío con el id "btnSubmit".   
 -->
-    <form action="">
+    <form action="" id="form">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre">
+        <input type="text" name="nombre" id="nombre">
         <br><br>
         <div>
             <input type="checkbox" name="lenguajes" id="">JavaScipt
@@ -49,15 +49,16 @@ Parte 6: Bonus (15 puntos)
         </div>
         <br>
         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" name="fechaNacimiento" id="fecNac">
+        <input type="date" name="fechaNacimiento" id="fechaNacimiento">
         <br><br>
         <label for="edad">Edad:</label>
-        <input type="number" name="edad" id="">
+        <input type="number" name="edad" id="edad">
         <br><br>
-        <textarea name="txtComentario" id="" cols="50" rows="5"
+        <textarea name="txtComentario" id="txtComentario" cols="50" rows="5"
             placeholder="Introduce algun comentario aqui"></textarea>
-        <br>
+        <br><br>
         <input type="submit" id="btnSubmit" value="Enviar">
+
     </form>
     <br>
     <p id="mostrarInfo"></p>
@@ -69,13 +70,23 @@ Parte 6: Bonus (15 puntos)
     Agregar el párrafo como hijo del formulario.
     -->
     <script>
-document.getElementById("btnSubmit").addEventListener("click", function(){})
-        var nombre = document.getElementById("nombre").value;
-        var lenguajes = document.getElementById("lenguajes").value;
-        var fecha = document.getElementById("fechaNacimiento").value;
-        var edad = document.getElementById("edad").value;
-        var txtComentario = document.getElementById("txtComentario").value;
-        console.log(x);
+        //Obtenemos todos los datos de todos los inputs
+        document.getElementById("btnSubmit").addEventListener("click", function () {
+            var nombre = document.getElementById("nombre").value;
+            var lenguajes = document.getElementsByName("lenguajes").value;
+            var fecha = document.getElementById("fechaNacimiento").value;
+            var edad = document.getElementById("edad").value;
+            var txtComentario = document.getElementById("txtComentario").value;
+
+            //Aqui creamos el párrafo
+            var parrafoInfo = document.createElement("p");
+            parrafoInfo.textContent = `Nombre: ${nombre}, Lenguajes favoritos: ${(lenguajes)}, Fecha de Nacimiento: ${fechaNacimiento}, Edad: ${edad}, Comentario: ${txtComentario}`;
+
+            document.getElementById("form").appendChild(parrafoInfo);
+
+        });
+
+        console.log();
     </script>
 </body>
 
