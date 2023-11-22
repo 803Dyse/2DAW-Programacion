@@ -1,0 +1,74 @@
+<html>
+<!--
+<body>
+    <!-Contador de 1 nivel-> INGRESAR - EN AMBOS LADOS Y ELIMINAR ESTE COMENTARIO
+    <h3></h3>
+    <p></p>
+    <img>
+    <h3></h3>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        var val = document.body.children;
+        var txt;
+        var contador = new Array();
+
+        for (var i = 0; i < val.length; i++) {
+            txt = val[i].nodeName;
+
+            if (contador[txt] === undefined) {
+                contador[txt] = 1;
+            } else {
+                contador[txt]++;
+            }
+            /*
+            if (contador[txt]) {
+                contador[txt]++;
+            } else {
+                contador[txt] = 1;
+            }*/
+        }
+
+        console.log(contador);
+        for (clave in contador) {
+            document.write(clave + ": " + contador[clave] + "<br/>");
+        }
+    </script>
+</body>
+-->
+
+<body>
+    <h3></h3>
+    <p></p>
+    <img>
+    <h3></h3>
+    <div>
+        <h2></h2>
+        <h2></h2>
+    </div>
+    
+    <script>
+        var val = document.body.children;
+        var txt;
+        var contador = new Array();
+
+        for (var i = 0; i < val.length; i++) {
+            txt = val[i].nodeName;
+
+            if (contador[txt] === undefined) {
+                contador[txt] = 1;
+            } else {
+                contador[txt]++;
+            }
+        }
+
+        console.log(contador);
+        for (clave in contador) {
+            document.write(clave + ": " + contador[clave] + "<br/>");
+        }
+    </script>
+</body>
+
+</html>

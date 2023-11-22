@@ -1,0 +1,89 @@
+<html>
+    <body>
+        <h3>Petición de datos</h3>
+        <form onsubmit="return foo()">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo">
+            </div>
+            <div>
+                <label for="resumen">Resumen:</label>
+                <input type="text" id="resumen" name="resumen">
+            </div>
+            <div>
+                <label for="texto">Texto:</label>
+                <textarea id="texto" name="texto"></textarea>
+            </div>
+            
+            <input type="submit" value="Crear">
+        </form>
+
+        <main>
+            <h1>Noticias:</h1>
+            <section id="seccion">
+
+            </section>
+        </main>
+
+        <script>
+            var id = 0;
+            function foo() {
+                //Recogida de datos
+                var titulo = document.getElementById("titulo").value;
+                var resumen = document.getElementById("resumen").value;
+                var texto = document.getElementById("texto").value;
+                
+                //Creacion de elementos y asociar
+                var article = document.createElement("article");
+                var div = document.createElement("div");
+
+                var p = document.createElement("p");
+                var contenidoP = document.createTextNode(titulo);
+                var p2 = document.createElement("p");
+                var contenidoP2 = document.createTextNode(resumen);
+                var p3 = document.createElement("p");
+                var contenidoP3 = document.createTextNode(texto);
+
+                    p.appendChild(contenidoP);
+                    p2.appendChild(contenidoP2);
+                    p3.appendChild(contenidoP3);
+                    div.appendChild(p);
+                    div.appendChild(p2);
+                    div.appendChild(p3);
+                    article.appendChild(div);
+
+                //Inserccion de atributos
+                p.setAttribute("style","font-size: 1.5em; font-weight: bold;");
+                p2.setAttribute("style","font-size: 0.8em; font-weight: bold;");
+
+                //Insertar el articulo dento del section
+                var seccion = document.getElementById("seccion");
+                    seccion.appendChild(article);
+                
+                //Insertar una id al articulo creado para identificarlos
+                article.setAttribute("id",id);
+                //id++; Solo para la 1ºParte
+                //return false; Solo para la 1ºParte
+
+
+                //2º Parte - Insertar un boton de eliminar
+                var borrar = document.createElement("button");
+                var idEliminar = "eliminar(" + id + ")";
+
+                borrar.innerHTML = "Eliminar";
+                borrar.setAttribute("onclick",idEliminar);
+                
+                    article.appendChild(borrar);
+
+
+                id++;
+                return false;
+            }
+
+
+            function eliminar(id) {
+                document.getElementById(id).remove();
+            }
+        </script>
+    </body>
+</html>

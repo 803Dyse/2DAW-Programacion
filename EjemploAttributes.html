@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Ejemplo Atributos</title>
+    <script type="text/javascript">
+        // Definición de la función listAttributes
+        function listAttributes() {
+            // Obtener referencia al elemento de párrafo por su id
+            var parrafo = document.getElementById("parrafo");
+            // Obtener referencia al campo de texto de resultado por su id
+            var resultado = document.getElementById("result");
+
+            // Verificar si el párrafo tiene atributos
+            if (parrafo.hasAttributes()) {
+                // Obtener la lista de atributos del párrafo
+                var attrs = parrafo.attributes;
+                // Variable para almacenar la salida (nombres y valores de atributos)
+                var salida = "";
+
+                // Iterar sobre la lista de atributos
+                for (var i = 0; i < attrs.length; i++) {
+                    // Concatenar el nombre y el valor de cada atributo
+                    salida += attrs[i].name + "->" + attrs[i].value;
+                }
+                // Asignar la cadena resultante al valor del campo de texto de resultado
+                resultado.value = salida;
+            } else {
+                // Si no hay atributos, mostrar un mensaje indicando esto
+                resultado.value = "No hay atributos a mostrar";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Párrafo de ejemplo con id "parrafo" y estilo de color de texto -->
+    <p id="parrafo" style="color: lightgreen;">Parrafo de ejemplo</p>
+
+    <!-- Formulario con un botón y un campo de texto de resultado -->
+    <form action="">
+        <p>
+            <!-- Botón que llama a la función listAttributes al hacer clic -->
+            <input type="button" value="Muestra el nombre cada atributo y su valor" onclick="listAttributes()">
+            <input id="result" type="text" value="">
+        </p>
+    </form>
+</body>
+
+</html>
