@@ -1,0 +1,65 @@
+<html>
+<!--Crear elementos y asociar-->
+<!--
+    <body>
+        <div id="div1">
+            <p id="p1">Esto es un parrafo</p>
+            <p id="p2">Esto es otro parrafo</p>
+        </div>
+        
+        <script>
+            var parrafo = document.createElement("p");
+            var nodo = document.createTextNode("Esto es un parrafo nuevo creado por createElement");
+                parrafo.appendChild(nodo);
+            
+            var elemento = document.getElementById("div1");
+                elemento.appendChild(parrafo);
+
+
+            var parrafo2 = document.createElement("p");
+            var nodo2 = document.createTextNode("Otro parrafo creado por createElement");
+                parrafo2.appendChild(nodo2);
+
+            var hijo = document.getElementById("p1");
+                elemento.insertBefore(parrafo2, hijo);
+        </script>
+    </body>
+-->
+
+<!--Eliminar elementos-->
+
+<body>
+    <div id="div1">
+        <p id="p1">Esto es un parrafo</p>
+        <p id="p2">Esto es otro parrafo</p>
+    </div>
+    <button onclick="foo()">Eliminar segundo parrafo</button>
+
+    <script>
+        function foo() {
+            document.getElementById("p2").remove();
+        }
+    </script>
+</body>
+
+
+<body>
+    <div id="div1">
+        <p id="p1">Esto es un parrafo</p>
+        <p id="p2">Esto es otro parrafo</p>
+    </div>
+
+    <script>
+        var padre = document.getElementById("div1");
+        var hijo = document.getElementById("p1");
+
+        var parrafo = document.createElement("p");
+        var nodo = document.createTextNode("Parrafo nuevo");
+        parrafo.appendChild(nodo);
+
+        padre.replaceChild(parrafo, hijo);
+    </script>
+</body>
+
+
+</html>

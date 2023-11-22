@@ -1,0 +1,82 @@
+<!--
+Parte 3: Manipulación de Nodos (15 puntos)
+3.1. Utiliza document.createElement() para crear un elemento de lista (<ul>).
+3.2. Utiliza document.createElement() nuevamente para crear tres elementos de lista (<li>) que contengan los nombres de los lenguajes de programación seleccionados por el usuario.
+3.3. Agrega los elementos de lista al elemento de lista principal.
+3.4. Agrega el elemento de lista principal al final del formulario.
+
+Parte 4: Funciones (15 puntos)
+4.1. Crea una función llamada calcularEdad que tome como parámetro la fecha de nacimiento y devuelva la edad actual del usuario.
+4.2. Llama a esta función al obtener el valor del campo de fecha de nacimiento y muestra la edad resultante en el párrafo creado en la Parte 2.
+
+Parte 5: Fecha y Hora (15 puntos)
+5.1. Muestra la fecha y hora actuales en el formato "dd/mm/yyyy HH:mm:ss" en el párrafo creado en la Parte 2.
+
+Parte 6: Bonus (15 puntos)
+6.1. Agrega un campo de selección que permita al usuario elegir su color favorito (rojo, azul, verde). Mostrar el color seleccionado en el párrafo creado en la Parte 2.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    Parte 1: Formulario (20 puntos)
+    1.1. Crea un formulario que incluya los siguientes elementos:
+    Un campo de texto para el nombre del usuario.
+    Un grupo de checkboxes para seleccionar lenguajes de programación favoritos (JavaScript, Python, Java).
+    Un campo de fecha para la fecha de nacimiento.
+    Un campo numérico para la edad.
+    Un área de texto para comentarios.
+    Un botón de envío con el id "btnSubmit".   
+-->
+    <form action="">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre">
+        <br><br>
+        <div>
+            <input type="checkbox" name="lenguajes" id="">JavaScipt
+            <br>
+            <input type="checkbox" name="lenguajes" id="">Python
+            <br>
+            <input type="checkbox" name="lenguajes" id="">Java
+        </div>
+        <br>
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" name="fechaNacimiento" id="fecNac">
+        <br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="">
+        <br><br>
+        <textarea name="txtComentario" id="" cols="50" rows="5"
+            placeholder="Introduce algun comentario aqui"></textarea>
+        <br>
+        <input type="submit" id="btnSubmit" value="Enviar">
+    </form>
+    <br>
+    <p id="mostrarInfo"></p>
+    <!--
+    Parte 2: Eventos (20 puntos)
+    2.1. Implementa un evento de clic en el botón de envío ("btnSubmit"). Este evento deberá:
+    Obtener los valores de los campos del formulario.
+    Crear un nuevo párrafo que muestre la información recopilada.
+    Agregar el párrafo como hijo del formulario.
+    -->
+    <script>
+document.getElementById("btnSubmit").addEventListener("click", function(){})
+        var nombre = document.getElementById("nombre").value;
+        var lenguajes = document.getElementById("lenguajes").value;
+        var fecha = document.getElementById("fechaNacimiento").value;
+        var edad = document.getElementById("edad").value;
+        var txtComentario = document.getElementById("txtComentario").value;
+        console.log(x);
+    </script>
+</body>
+
+</html>
