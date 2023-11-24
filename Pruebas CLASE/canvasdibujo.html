@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #canvasArea {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="canvasArea" width="500" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById('canvasArea');
+  const ctx = canvas.getContext('2d');
+  let drawingMode = false;
+  let erasingMode = false;
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'd') {
+      // Cambia el modo dibujo al contrario del estado actual
+      drawingMode = !drawingMode;
+      erasingMode = false;
+    } else if (event.key === 'b') {
+      // Cambia el modo borrado al contrario del estado actual
+      erasingMode = !erasingMode;
+      drawingMode = false;
+    }
+  });
+
+  canvas.addEventListener('mousemove', (event) => {
+    const x = event.clientX - canvas.offsetLeft;
+    const y = event.clientY - canvas.offsetTop;
+
+    if (drawingMode) {
+      ctx.fillRect(x, y, 5, 5);
+    } else if (erasingMode) {
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(x, y, 5, 5);
+      ctx.fillStyle = '#000';
+    }
+  });
+</script>
+
+</body>
+</html>
