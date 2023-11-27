@@ -17,60 +17,61 @@
   </div>
 
   <script>
-    // Obtenemos el elemento canvas y su contexto 2D
     const canvas = document.getElementById('canvasArea');
     const ctx = canvas.getContext('2d');
+    let points = [];
+    let drawingMode = true;
 
-    // Variables para el control del modo de dibujo y borrado
-    let drawingMode = false;
-    let erasingMode = false;
-    let pathStarted = false;
+    function drawPolygon() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Evento de teclado para cambiar entre el modo de dibujo y borrado
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'd') {
-        // Cambia el modo dibujo al contrario del estado actual
-        drawingMode = !drawingMode;
-        erasingMode = false;
-        pathStarted = false;
-      } else if (event.key === 'b') {
-        // Cambia el modo borrado al contrario del estado actual
-        erasingMode = !erasingMode;
-        drawingMode = false;
-        pathStarted = false;
+      if (points.length < 2) {
+        return; // Necesitas al menos dos puntos para formar una línea
       }
-    });
 
-    // Evento de movimiento del ratón para dibujar o borrar
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+
+      if (drawingMode) {
+        // Dibuja una línea desde el último punto hasta el cursor en modo de dibujo
+        const lastPoint = points[points.length - 1];
+        ctx.lineTo(lastPoint.x, lastPoint.y);
+      }
+
+      ctx.closePath();
+      ctx.stroke();
+    }
+
     canvas.addEventListener('mousemove', (event) => {
       const x = event.clientX - canvas.offsetLeft;
       const y = event.clientY - canvas.offsetTop;
 
       if (drawingMode) {
-        if (!pathStarted) {
-          // Inicia una nueva ruta de dibujo
-          ctx.beginPath();
-          // Mueve el lápiz a la posición inicial
-          ctx.moveTo(x, y);
-          // Indica que la ruta ha comenzado
-          pathStarted = true;
-          // Añado un grosor a las lineas
-          ctx.lineWidth = 3;
+        // Actualiza el último punto en modo de dibujo
+        points[points.length - 1] = { x, y };
+        drawPolygon();
+      }
+    });
 
-        } else {
-          // Dibuja una línea hasta la posición actual
-          ctx.lineTo(x, y);
-          // Realiza el trazo
-          ctx.stroke();
-        }
-      } else if (erasingMode) {
-        // Cambia el color a blanco para borrar
-        ctx.fillStyle = '#fff';
-        // Dibuja un rectángulo blanco en la posición actual
-        ctx.fillRect(x, y, 5, 5);
-        // Restaura el color original
-        ctx.fillStyle = '#000';
-        ctx.lineWidth = 15;
+    canvas.addEventListener('click', (event) => {
+      const x = event.clientX - canvas.offsetLeft;
+      const y = event.clientY - canvas.offsetTop;
+
+      points.push({ x, y });
+
+      if (points.length > 1) {
+        drawPolygon();
+      }
+    });
+
+    // Cambia al modo de visualización al presionar la tecla 'v'
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'v') {
+        drawingMode = !drawingMode;
       }
     });
   </script>
