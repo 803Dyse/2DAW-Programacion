@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj con Segundero</title>
+</head>
+
+<body>
+    <canvas id="circulo" width="300" height="300"></canvas>
+    <script>
+        // Obtener el contexto del canvas
+        var canvas = document.getElementById('circulo');
+        var ctx = canvas.getContext('2d');
+        // Definir el centro y el radio del círculo
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+        var radius = 130;
+        // Número de puntos en el círculo
+        var numPoints = 360;
+        // Variable para almacenar el ángulo actual del segundero
+        var secondsAngle = 0;
+        // Función para dibujar el círculo y el segundero
+        function drawClock() {
+            // Limpiar el canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Dibujar el círculo
+            ctx.beginPath();
+            for (var i = 0; i <= numPoints; i++) {
+                var angle = (i / numPoints) * 2 * Math.PI;
+                var x = centerX + radius * Math.cos(angle);
+                var y = centerY + radius * Math.sin(angle);
+                ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            // Dibujar el segundero
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY); // Mover al centro del círculo
+            var secondsX = centerX + radius * Math.cos(secondsAngle);
+            var secondsY = centerY + radius * Math.sin(secondsAngle);
+            ctx.lineTo(secondsX, secondsY);
+            ctx.strokeStyle = 'black'; // Color del segundero
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Actualizar el ángulo del segundero para el siguiente segundo
+            secondsAngle += (2 * Math.PI) / 12; // Cambiado a 12 segundos en un minuto
+        }
+        // Llamar a la función drawClock cada segundo
+        setInterval(drawClock, 20);
+    </script>
+</body>
+
+</html>
