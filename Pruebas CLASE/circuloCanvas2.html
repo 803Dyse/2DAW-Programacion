@@ -20,7 +20,7 @@
         // Número de puntos en el círculo
         var numPoints = 360;
         // Variable para almacenar el ángulo actual del segundero
-        var secondsAngle = 0;
+        var secondsAngle = 1.5 * Math.PI; // Cambiado a 0.5 * Math.PI para iniciar en vertical
         // Función para dibujar el círculo y el segundero
         function drawClock() {
             // Limpiar el canvas
@@ -32,6 +32,14 @@
                 var x = centerX + radius * Math.cos(angle);
                 var y = centerY + radius * Math.sin(angle);
                 ctx.lineTo(x, y);
+
+                // Dibujar los números del 1 al 12 alrededor del círculo
+                if (i % 30 === 0) {
+                    var numX = centerX + (radius - 20) * Math.cos(angle);
+                    var numY = centerY + (radius - 20) * Math.sin(angle);
+                    ctx.font = "16px Arial";
+                    ctx.fillText(i / 30 + 1, numX - 6, numY + 6);
+                }
             }
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 2;
@@ -47,10 +55,10 @@
             ctx.stroke();
 
             // Actualizar el ángulo del segundero para el siguiente segundo
-            secondsAngle += (2 * Math.PI) / 12; // Cambiado a 12 segundos en un minuto
+            secondsAngle += (2 * Math.PI) / 60; // Cambiado a 60 segundos en un minuto
         }
         // Llamar a la función drawClock cada segundo
-        setInterval(drawClock, 20);
+        setInterval(drawClock, 1000);
     </script>
 </body>
 
