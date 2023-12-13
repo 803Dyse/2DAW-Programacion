@@ -6,68 +6,33 @@ body {
   color: white;
 }
 
-.container {
+header {
+  display: grid;
   width: 60%;
   margin: auto;
   overflow: hidden;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   background-color: #333;
-  padding: 20px;
   border-radius: 10px;
-}
-
-header {
-  background: #222;
   color: white;
-  padding: 20px 0;
+  padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-header a {
-  color: #e8491d;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 16px;
-}
-
-header ul {
-  padding: 0;
-  list-style: none;
   text-align: center;
-}
-
-header li {
-  display: inline;
-  margin: 0 20px;
-}
-
-header #branding {
-  text-align: center;
-}
-
-header #branding h1 {
-  margin: 0;
-}
-
-header nav {
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
-header .highlight,
-header .current a {
-  font-weight: bold;
-}
-
-header a:hover {
-  font-weight: bold;
-}
-
 footer {
-  background: #222;
+  display: grid;
+  width: 60%;
+  background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px 0;
+  padding: 20px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 h1 {
@@ -108,7 +73,7 @@ a {
   border-radius: 20px;
   background: #242424;
   position: relative;
-  padding: 1.8rem;
+  padding: 1.5rem;
   border: 1px solid #000000;
   transition: 0.5s ease-out;
   overflow: visible;
@@ -124,8 +89,118 @@ a {
   width: 80px;
 }
 
-.logoIndex:nth-last-child(){
-    border: solid white 10px;
-    margin-top: 100px;
+.card:last-child .logoIndex {
+  width: 90px;
 }
-/*Ahora*/
+
+.card .logoIndex {
+  display: grid;
+  justify-self: center;
+  border: solid white 1px;
+}
+
+/*
+
+ATENCION LEER ESTA MIERDA PORQUE ES IMPORTANTE
+El main que aqui en css lo tratamos como ".container" está sobre grid, distribuido en 4 contenedores, que se veen asi.
+
+###########################   Contenedor 1 = contenedorTarjetas
+#contenedor1 # contenedor2#   Contenedor 2 = contenedorComplementario
+#contenedor3 # contenedor4#   Contenedor 3 = contenedorSobreMi
+###########################   Contenedor 4 = contenedorRecomendaciones
+
+Inicialmente, el grid se hizo para que esté asi, repartido de esta manera, luego ya le daré forma a cada contenedor de modo que no se verá exactamente como representado arriba, pero independiente de si contenedor 1, 2, 3 o 4 son mas ancho que uno u otro, la grilla de 4x4 se mantiene por mis santos cojones.
+
+Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
+*/
+
+/*---Este contenedor si fuera de tu familia, seria yo, porque es el contenedor padre---*/
+/*Este es el contenedor global, todo lo que ves despues de header y antes de footer.*/
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 60%;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/*---Contenedor de las tarjetas---*/
+/* 
+    Creo que solo con poner esto ya 
+    entiendes que este contenedor 
+    literalmente hace esto.
+
+    item1 item2 item3
+    item4 item5 item6
+*/
+#contenedorTarjetas {
+  display: grid;
+  border: solid rgb(0, 255, 251) 1px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap: 9px;
+}
+
+/*---Contenedor Complementario*/
+/*
+Vale, aqui la cosa cambia un poco pero no hay que volverse loco..
+
+item1 item1
+item2 item3
+
+Es decir, el texto con el titulo arriba es un contenedor que ocupa 2 columnas,
+ya lo de "Repositorios" con la lista es otro contenedor, en la segunda fila que
+solo ocupa una puta columna, y el calendario en la segunda fila, al lado de 
+"Repositorios" siendo otro contenedor que tambien solo ocupa 1 columna.
+*/
+#contenedorComplementario {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+#contenedorTextoInfo1 {
+  display: grid;
+  grid-column: 1 / -1;
+  border: solid yellow 1px;
+}
+
+#contenedorTextoInfo2 {
+  border: solid yellow 1px;
+}
+
+#contenedorCalendario {
+  border: solid yellow 1px;
+}
+
+/*---Contenedor Sobre Mi---*/
+/*
+Si, soy medio maricon y como no se me ocurrió nada y veía 
+la web maquetada con un cacho enorme en vacio, decidi promoverme
+un poco, asi que mas vale que me sigas como minimo en instagram,
+sino serás obligado a presentarte a la mili
+*/
+#contenedorSobreMi {
+  border: solid red 1px;
+}
+
+/*---Contenedor Recomendaciones---*/
+/*
+Esto ya es otro nivel, pensé en este contenedor de forma abstracta, como dice el nombre:
+"recomendaciones", pero realmente ni puta idea de que poner, y mientras decidi tener este
+ultimo contenedor y hacia los primeros de arriba, se me iban surgiendo ideas... Pero una
+mejor que la otra.. Entonces si ves que está guapardo o bien pensado, sabrás el porque..
+
+"My criativity is my own power."
+*/
+#contenedorRecomendaciones {
+  border: solid green 1px;
+}
