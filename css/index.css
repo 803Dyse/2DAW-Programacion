@@ -58,8 +58,9 @@ h1 {
 }
 
 /*Vamos a quitarle toda la mierdecilla a los <a>*/
-a {
+a, a:visited {
   text-decoration: none;
+  color: inherit;
 }
 
 /*---Animacion tarjetas---*/
@@ -87,16 +88,16 @@ a {
 /*---Configuramos el tamaño de las logos*/
 .logoIndex {
   width: 80px;
+  height: 80px;
 }
 
-.card:last-child .logoIndex {
+/* .card:last-child .logoIndex {
   width: 90px;
-}
+} */
 
 .card .logoIndex {
   display: grid;
   justify-self: center;
-  border: solid white 1px;
 }
 
 /*
@@ -204,3 +205,42 @@ mejor que la otra.. Entonces si ves que está guapardo o bien pensado, sabrás e
 #contenedorRecomendaciones {
   border: solid green 1px;
 }
+
+
+
+
+
+
+
+/*---Carrousel de los cojones---*/
+/* .carousel-container {
+    position: relative;
+    width: 60%;
+    margin: auto;
+  }
+  
+  .carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+  }
+  
+  .carousel-prev {
+    left: 0;
+  }
+  
+  .carousel-next {
+    right: 0;
+  }
+  
+  .carousel-slide {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  } */
