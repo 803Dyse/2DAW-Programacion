@@ -58,7 +58,8 @@ h1 {
 }
 
 /*Vamos a quitarle toda la mierdecilla a los <a>*/
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: inherit;
 }
@@ -74,10 +75,14 @@ a, a:visited {
   border-radius: 20px;
   background: #242424;
   position: relative;
-  padding: 1.5rem;
+  padding: 200px;
   border: 1px solid #000000;
   transition: 0.5s ease-out;
   overflow: visible;
+  margin: 10%;
+
+  /* flex: 0 0 auto;
+  margin-right: 5px; */
 }
 
 .card:hover {
@@ -143,11 +148,10 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 #contenedorTarjetas {
   display: grid;
   border: solid rgb(0, 255, 251) 1px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   padding-left: 10px;
   padding-right: 10px;
-  gap: 9px;
+  gap: 50px;
 }
 
 /*---Contenedor Complementario*/
@@ -204,4 +208,10 @@ mejor que la otra.. Entonces si ves que está guapardo o bien pensado, sabrás e
 */
 #contenedorRecomendaciones {
   border: solid green 1px;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
