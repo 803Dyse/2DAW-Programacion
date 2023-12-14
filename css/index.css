@@ -1,5 +1,5 @@
 * {
-  font-family: "Fira Sans", monospace;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -39,7 +39,6 @@ footer {
 }
 
 h1 {
-  font-family: "Fira Sans", monospace;
   color: #4deeea;
   text-shadow: 0 0 20px #4deeea, 0 0 2px #4deeea, 0 0 10px #4deeea,
     0 0 10px #4deeea, 0 0 30px #4deeea;
@@ -148,7 +147,7 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /*Este es el contenedor global, todo lo que ves despues de header y antes de footer.*/
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 600px 1fr;
   grid-template-rows: repeat(2, 1fr);
   gap: 5px;
   width: 60%;
@@ -160,9 +159,8 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   border-radius: 10px;
 }
 
-/***** Slideshow gafas *****/
-/* Slideshow container */
 
+/* Slideshow container */
 #contenedorTarjetas {
   width: 100%;
   align-self: center;
@@ -178,17 +176,22 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /* Hide the images by default */
 .mySlides {
   display: none;
+  padding: 50px;
 }
+
+/* .mySlides p{
+    margin-top: 5%;
+    border: solid black 1px;
+} */
 
 /* Next & previous buttons */
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 20%;
   width: auto;
-  margin-top: -22px;
-  padding: 16px;
+  padding: 10px;
   color: #b2b2b2;
   font-weight: bold;
   font-size: 18px;
@@ -200,11 +203,14 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /* Position the "prev button" to the right */
 .prev {
   left: 0;
+  margin-left:20% ;
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
+  margin-right:20% ;
+
   border-radius: 3px 0 0 3px;
 }
 
@@ -215,24 +221,10 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  position: relative;
-  bottom: 50px;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: white;
-  border: 0.5px solid #B2B2B2;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
 
 .active-dot,
 .dot:hover {
-  background-color: #B2B2B2;
+  background-color: #b2b2b2;
 }
 
 /* Fading animation */
@@ -245,13 +237,19 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   text-align: center;
 }
 
+.fade p{
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 @keyframes fade {
   from {
-    opacity: .4
+    opacity: 0.4;
   }
 
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -260,24 +258,6 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   height: 100px;
   border-radius: 15px;
 }
-
-/*---Contenedor de las tarjetas---*/
-/* 
-    Creo que solo con poner esto ya 
-    entiendes que este contenedor 
-    literalmente hace esto.
-
-    item1 item2 item3
-    item4 item5 item6
-/* 
-#contenedorTarjetas {
-  display: grid;
-  border: solid rgb(0, 255, 251) 1px;
-  grid-template-columns: repeat(6, 1fr);
-  padding-left: 10px;
-  padding-right: 10px;
-  gap: 50px;
-} */
 
 /*---Contenedor Complementario*/
 /*
