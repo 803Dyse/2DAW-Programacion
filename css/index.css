@@ -1,5 +1,7 @@
+* {
+  font-family: "Fira Sans", monospace;
+}
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #1a1a1a;
@@ -51,11 +53,26 @@ h1 {
   text-shadow: 0 0 20px #787cb5, 0 0 2px #787cb5, 0 0 10px #787cb5,
     0 0 10px #787cb5, 0 0 30px #787cb5;
 }
+#htmlNeon {
+  color: #e65428;
+  text-shadow: 0 0 20px #e65428, 0 0 2px #e65428, 0 0 10px #e65428,
+    0 0 10px #e65428, 0 0 30px #e65428;
+}
+#javaNeon {
+  color: #ea2d2e;
+  text-shadow: 0 0 1px #ea2d2e, 0 0 2px #ea2d2e, 0 0 10px #ea2d2e,
+    0 0 5px #ea2d2e, 0 0 30px #ea2d2e;
+}
 #cssNeon {
   color: #006bc0;
   text-shadow: 0 0 20px #006bc0, 0 0 2px #006bc0, 0 0 10px #006bc0,
     0 0 10px #006bc0, 0 0 30px #006bc0;
 }
+#sqlNeon {
+    color: #06677c;
+    text-shadow: 0 0 20px #06677c, 0 0 2px #06677c, 0 0 10px #06677c,
+      0 0 10px #06677c, 0 0 30px #06677c;
+  }
 
 /*Vamos a quitarle toda la mierdecilla a los <a>*/
 a,
