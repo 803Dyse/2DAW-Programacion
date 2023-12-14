@@ -1,6 +1,7 @@
 * {
   font-family: "Fira Sans", monospace;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -43,36 +44,42 @@ h1 {
   text-shadow: 0 0 20px #4deeea, 0 0 2px #4deeea, 0 0 10px #4deeea,
     0 0 10px #4deeea, 0 0 30px #4deeea;
 }
+
 #jsNeon {
   color: #f7df1e;
   text-shadow: 0 0 20px #f7df1e, 0 0 2px #f7df1e, 0 0 10px #f7df1e,
     0 0 10px #f7df1e, 0 0 30px #f7df1e;
 }
+
 #phpNeon {
   color: #787cb5;
   text-shadow: 0 0 20px #787cb5, 0 0 2px #787cb5, 0 0 10px #787cb5,
     0 0 10px #787cb5, 0 0 30px #787cb5;
 }
+
 #htmlNeon {
   color: #e65428;
   text-shadow: 0 0 20px #e65428, 0 0 2px #e65428, 0 0 10px #e65428,
     0 0 10px #e65428, 0 0 30px #e65428;
 }
+
 #javaNeon {
   color: #ea2d2e;
   text-shadow: 0 0 1px #ea2d2e, 0 0 2px #ea2d2e, 0 0 10px #ea2d2e,
     0 0 5px #ea2d2e, 0 0 30px #ea2d2e;
 }
+
 #cssNeon {
   color: #006bc0;
   text-shadow: 0 0 20px #006bc0, 0 0 2px #006bc0, 0 0 10px #006bc0,
     0 0 10px #006bc0, 0 0 30px #006bc0;
 }
+
 #sqlNeon {
-    color: #06677c;
-    text-shadow: 0 0 20px #06677c, 0 0 2px #06677c, 0 0 10px #06677c,
-      0 0 10px #06677c, 0 0 30px #06677c;
-  }
+  color: #06677c;
+  text-shadow: 0 0 20px #06677c, 0 0 2px #06677c, 0 0 10px #06677c,
+    0 0 10px #06677c, 0 0 30px #06677c;
+}
 
 /*Vamos a quitarle toda la mierdecilla a los <a>*/
 a,
@@ -144,13 +151,123 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 5px;
-  width: 60%;
+  width: 80%;
   margin: auto;
   overflow: hidden;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
+}
+
+/***** Slideshow gafas *****/
+/* Slideshow container */
+
+#contenedorTarjetas {
+  width: 100%;
+  align-self: center;
+}
+
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  height: 100%;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #b2b2b2;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "prev button" to the right */
+.prev {
+  left: 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/2 etc) */
+/* .numbertext {
+  color: white;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+} */
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  position: relative;
+  bottom: 50px;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: white;
+  border: 0.5px solid #B2B2B2;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active-dot,
+.dot:hover {
+  background-color: #B2B2B2;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.fade h2 {
+  text-align: center;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.logoIndex {
+  width: 100%;
+  height: 100px;
+  border-radius: 15px;
 }
 
 /*---Contenedor de las tarjetas---*/
@@ -161,7 +278,7 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 
     item1 item2 item3
     item4 item5 item6
-*/
+/* 
 #contenedorTarjetas {
   display: grid;
   border: solid rgb(0, 255, 251) 1px;
@@ -169,7 +286,7 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   padding-left: 10px;
   padding-right: 10px;
   gap: 50px;
-}
+} */
 
 /*---Contenedor Complementario*/
 /*
@@ -225,10 +342,4 @@ mejor que la otra.. Entonces si ves que está guapardo o bien pensado, sabrás e
 */
 #contenedorRecomendaciones {
   border: solid green 1px;
-}
-
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
 }
