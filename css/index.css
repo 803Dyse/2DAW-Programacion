@@ -176,7 +176,6 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   /* border: solid orange 1px; */
 
   border-top: 1px solid #ffffff;
-  
 }
 .slideshow-container {
   display: grid;
@@ -295,20 +294,19 @@ solo ocupa una puta columna, y el calendario en la segunda fila, al lado de
   padding-bottom: 5%;
   padding-left: 5%;
   padding-right: 5%;
-  
 }
 /*  */
 #contenedorTextoInfo2 {
   /* border: solid yellow 1px; */
   padding-left: 15%;
-
+  padding: 5%;
 }
 
 #contenedorCalendario {
   /* border: solid yellow 1px; */
   padding-left: 9%;
   padding-right: 9%;
-
+  padding: 5%;
 }
 
 /*---Contenedor Sobre Mi---*/
