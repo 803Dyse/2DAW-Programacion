@@ -147,7 +147,7 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /*Este es el contenedor global, todo lo que ves despues de header y antes de footer.*/
 .container {
   display: grid;
-  grid-template-columns: 600px 1fr;
+  grid-template-columns: 400px 1fr;
   grid-template-rows: repeat(2, 1fr);
   gap: 5px;
   width: 60%;
@@ -157,16 +157,30 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   background-color: #333;
   padding: 20px;
   border-radius: 10px;
+  gap: 15px;
 }
-
 
 /* Slideshow container */
 #contenedorTarjetas {
+  display: grid;
+  grid-template-rows: 355px 1fr;
   width: 100%;
-  align-self: center;
+  height: 100%;
+
+  /* border: solid red 1px; */
 }
 
+#contenedorAbajoDeTarjetas {
+  display: grid;
+  padding: 5%;
+  /* border: solid orange 1px; */
+
+  border-top: 1px solid #ffffff;
+  
+}
 .slideshow-container {
+  display: grid;
+  align-items: center;
   width: 100%;
   position: relative;
   margin: auto;
@@ -176,7 +190,6 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /* Hide the images by default */
 .mySlides {
   display: none;
-  padding: 50px;
 }
 
 /* .mySlides p{
@@ -189,9 +202,8 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 .next {
   cursor: pointer;
   position: absolute;
-  top: 20%;
+  top: 30%;
   width: auto;
-  padding: 10px;
   color: #b2b2b2;
   font-weight: bold;
   font-size: 18px;
@@ -203,15 +215,14 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 /* Position the "prev button" to the right */
 .prev {
   left: 0;
-  margin-left:20% ;
+  margin-left: 10%;
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
-  margin-right:20% ;
-
   border-radius: 3px 0 0 3px;
+  margin-right: 10%;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -220,7 +231,6 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 .active-dot,
 .dot:hover {
@@ -237,10 +247,10 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   text-align: center;
 }
 
-.fade p{
-    text-align: center;
-    padding-left: 10%;
-    padding-right: 10%;
+.fade p {
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 @keyframes fade {
@@ -280,15 +290,25 @@ solo ocupa una puta columna, y el calendario en la segunda fila, al lado de
 #contenedorTextoInfo1 {
   display: grid;
   grid-column: 1 / -1;
-  border: solid yellow 1px;
+  /* border: solid yellow 1px; */
+  /* padding: 5%; */
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  
 }
-
+/*  */
 #contenedorTextoInfo2 {
-  border: solid yellow 1px;
+  /* border: solid yellow 1px; */
+  padding-left: 15%;
+
 }
 
 #contenedorCalendario {
-  border: solid yellow 1px;
+  /* border: solid yellow 1px; */
+  padding-left: 9%;
+  padding-right: 9%;
+
 }
 
 /*---Contenedor Sobre Mi---*/
@@ -299,7 +319,14 @@ un poco, asi que mas vale que me sigas como minimo en instagram,
 sino serás obligado a presentarte a la mili
 */
 #contenedorSobreMi {
-  border: solid red 1px;
+  border-top: 1px solid #ffffff;
+  padding: 5%;
+
+  /* border: solid red 1px; */
+}
+
+#quienSoy {
+  padding: 5%;
 }
 
 /*---Contenedor Recomendaciones---*/
@@ -312,5 +339,11 @@ mejor que la otra.. Entonces si ves que está guapardo o bien pensado, sabrás e
 "My criativity is my own power."
 */
 #contenedorRecomendaciones {
-  border: solid green 1px;
+  padding: 5%;
+}
+
+#recomendacionesTexto {
+}
+
+#recomendacionesMultimedia {
 }
