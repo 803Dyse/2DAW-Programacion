@@ -39,9 +39,8 @@ footer {
 }
 
 h1 {
-  color: #4deeea;
-  text-shadow: 0 0 20px #4deeea, 0 0 2px #4deeea, 0 0 10px #4deeea,
-    0 0 10px #4deeea, 0 0 30px #4deeea;
+  color: #ffffff;
+  text-shadow:0 0 5px #ffffff;
 }
 
 #jsNeon {

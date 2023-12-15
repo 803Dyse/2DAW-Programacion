@@ -12,11 +12,8 @@
 
 <body>
     <header>
-
-        <h1>Índice de Estudios de Programación</h1>
-
+        <h1 id="tituloWeb">Índice de Estudios de Programación</h1>
     </header>
-
     <main class="container">
 
 
@@ -27,14 +24,14 @@
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">1 / 6</div> -->
                     <img class="logoIndex" src="img/Index/JavaScript_logo.svg" alt="logo de javascript">
-                    <h2 id="jsNeon">JAVASCRIPT</h2>
+                    <h2 class="cambiarColor" id="jsNeon">JAVASCRIPT</h2>
                     <p>El lenguaje del diablo. La documentacion de esta mierda es como leerse una biblia satanica.</p>
                 </div>
 
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">2 / 6</div> -->
                     <img class="logoIndex" src="img/Index/PHP_logo.svg" alt="logo de PHP ">
-                    <h2 id="phpNeon">PHP</h2>
+                    <h2 class="cambiarColor" id="phpNeon">PHP</h2>
                     <p>El lenguaje de los formularios, aqui solo se habla en el idioma "formulés" de la tierra secreta
                         de los formularios no procesados.</p>
                     <p>Esta información procede, es un antiguo testamiento.</p>
@@ -43,14 +40,14 @@
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">3 / 6</div> -->
                     <img class="logoIndex" src="img/Index/CSS3_logo.svg" alt="logo de css3">
-                    <h2 id="cssNeon">CSS3</h2>
+                    <h2 class="cambiarColor" id="cssNeon">CSS3</h2>
                     <p>El css realmente da igual. La maquetación se hace con tablas como dios manda.</p>
                 </div>
 
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">4 / 6</div> -->
                     <img class="logoIndex" src="img/Index/HMTL5_logo.svg" alt="logo de html5">
-                    <h2 id="htmlNeon">HTML5</h2>
+                    <h2 class="cambiarColor" id="htmlNeon">HTML5</h2>
                     <p>El HTML fué el responsable por hoy estar cursando DAW. No tiene nada ya que sin css no aporta
                         mucho.. Pero es el padre de la web, asi que hay que respetarlo.</p>
                 </div>
@@ -58,7 +55,7 @@
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">5 / 6</div> -->
                     <img class="logoIndex" src="img/Index/Java_logo.svg" alt="logo de java">
-                    <h2 id="javaNeon">JAVA</h2>
+                    <h2 class="cambiarColor" id="javaNeon">JAVA</h2>
                     <p>Creo que soy el 0.0001% de las personas que le gusta java.. Seguramente porque el profesor que
                         imparte esta asignatura es la ostia. (gracias toni)</p>
                 </div>
@@ -66,7 +63,7 @@
                 <div class="mySlides fade">
                     <!-- <div class="numbertext">6 / 6</div> -->
                     <img class="logoIndex" src="img/Index/MySQL_logo.svg" alt="logo de mysql">
-                    <h2 id="sqlNeon">MYSQL</h2>
+                    <h2 class="cambiarColor" id="sqlNeon">MYSQL</h2>
                     <p>Recuerda: Borra toda la base de datos en produccion y a los 10 segundos de pánico reza el padre
                         nuestro para prestigiar la clave foranea.</p>
                 </div>
@@ -225,19 +222,51 @@
         function showSlidesComprar(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
             if (n > slides.length) { slideIndex = 1 }
             if (n < 1) { slideIndex = slides.length }
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active-dot", "");
-            }
+            //
             slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active-dot";
         }
 
+
+
+
+        var coloresYSombras = {
+    "jsNeon": "#f7df1e",
+    "phpNeon": "#787cb5",
+    "cssNeon": "#006bc0",
+    "htmlNeon": "#e65428",
+    "javaNeon": "#ea2d2e",
+    "sqlNeon": "#06677c"
+};
+
+var h2CambiarColor = document.querySelectorAll("h2.cambiarColor");
+var h1Titulo = document.getElementById("tituloWeb");
+
+//Transicion bakana para dejar esto mas natural
+h1Titulo.style.transition = "color 0.3s, text-shadow 0.3s";
+
+h2CambiarColor.forEach(function (h2) {
+  //como esta mierda es un array y me di cuenta ahora... por lo menos que lo haga de forma elegante..
+    h2.addEventListener('mouseover', function () {
+        var idH2 = this.id; //Guardamos el id aqui pa k sea mas comodo
+        if (coloresYSombras[idH2]) {
+            var color = coloresYSombras[idH2];
+            //aqui sale toda la magia
+            h1Titulo.style.color = color;
+            h1Titulo.style.textShadow = `0 0 30px ${color}, 0 0 3px ${color}, 0 0 10px ${color}, 0 0 3px ${color}, 0 0 3px ${color}`;
+        }
+    });
+
+    //Ya de paso lo mismo pa cuando se vaya el raton
+    h2.addEventListener('mouseout', function () {
+        h1Titulo.style.color = "white"; 
+        h1Titulo.style.textShadow = "0 0 5px white";
+    });
+});
 
 
     </script>
