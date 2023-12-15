@@ -38,7 +38,7 @@ footer {
   margin-top: 10px;
 }
 
-h1 {
+h1,h2,h3 {
   color: #ffffff;
   text-shadow:0 0 5px #ffffff;
 }
@@ -171,9 +171,9 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
 
 #contenedorAbajoDeTarjetas {
   display: grid;
+  grid-template-rows: 50px 120px;
   padding: 5%;
   /* border: solid orange 1px; */
-
   border-top: 1px solid #ffffff;
 }
 .slideshow-container {
@@ -283,6 +283,8 @@ solo ocupa una puta columna, y el calendario en la segunda fila, al lado de
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
+    padding: 5%;
+
 }
 
 #contenedorTextoInfo1 {
@@ -296,16 +298,21 @@ solo ocupa una puta columna, y el calendario en la segunda fila, al lado de
 }
 /*  */
 #contenedorTextoInfo2 {
+  display: grid;
+  grid-template-rows: auto;
+
   /* border: solid yellow 1px; */
-  padding-left: 15%;
-  padding: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 #contenedorCalendario {
+  display: grid;
+grid-template-rows: 60px;
   /* border: solid yellow 1px; */
-  padding-left: 9%;
-  padding-right: 9%;
-  padding: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  
 }
 
 /*---Contenedor Sobre Mi---*/
