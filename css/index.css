@@ -176,6 +176,7 @@ Dicho esto, podrás observar ahora y entender mejor los contenedores abajo.
   /* border: solid orange 1px; */
   border-top: 1px solid #ffffff;
 }
+
 .slideshow-container {
   display: grid;
   align-items: center;
@@ -308,7 +309,7 @@ solo ocupa una puta columna, y el calendario en la segunda fila, al lado de
 
 #contenedorCalendario {
   display: grid;
-grid-template-rows: 60px;
+grid-template-rows: auto;
   /* border: solid yellow 1px; */
   padding-left: 5%;
   padding-right: 5%;
@@ -325,7 +326,7 @@ sino serás obligado a presentarte a la mili
 #contenedorSobreMi {
   border-top: 1px solid #ffffff;
   padding: 5%;
-
+margin-top: -150px;
   /* border: solid red 1px; */
 }
 
