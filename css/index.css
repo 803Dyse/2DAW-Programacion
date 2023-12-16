@@ -38,6 +38,10 @@ footer {
   margin-top: 10px;
 }
 
+h1{
+  font-size: 36px;
+}
+
 h1,h2,h3 {
   color: #ffffff;
   text-shadow:0 0 5px #ffffff;
@@ -64,7 +68,7 @@ h1,h2,h3 {
 #javaNeon {
   color: #ea2d2e;
   text-shadow: 0 0 1px #ea2d2e, 0 0 2px #ea2d2e, 0 0 10px #ea2d2e,
-    0 0 5px #ea2d2e, 0 0 30px #ea2d2e;
+    0 0 1px #ea2d2e, 0 0 30px #ea2d2e;
 }
 
 #cssNeon {
